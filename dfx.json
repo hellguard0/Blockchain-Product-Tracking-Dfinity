@@ -1,0 +1,39 @@
+{
+  "canisters": {
+    "connectNFT": {
+      "main": "src/connectNFT/main.mo",
+      "type": "motoko"
+    },
+    "nft": {
+      "main": "src/NFT/nft.mo",
+      "type": "motoko"
+    },
+    "connectNFT_assets": {
+      "dependencies": [
+        "connectNFT"
+      ],
+      "frontend": {
+        "entrypoint": "src/connectNFT_assets/src/index.html"
+      },
+      "source": [
+        "src/connectNFT_assets/assets",
+        "dist/connectNFT_assets/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "dfx": "0.10.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}
