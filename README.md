@@ -8,7 +8,7 @@ dfx start --clean
 ```
 2. Deploying to local canister for testing
 ```
-dfx deploy --argument='("",principal "<INPUT NFT Canister Owner Account ID>",(vec {<INPUT Your First Vector Graphics Image Code>}))'
+dfx deploy --argument='("<NFT Name to be created>",principal "<INPUT NFT Canister Owner Account ID>",(vec {<INPUT Your First Vector Graphics Image Code>}))'
 ```
 3. RUN Local NPM Server
 ```
