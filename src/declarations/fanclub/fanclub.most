@@ -1,0 +1,44 @@
+// Version: 1.0.0
+type AssocList<K, V> = List<(K, V)>;
+type AssocList__1<K, V> = AssocList<K, V>;
+type Branch<K, V> = {left : Trie<K, V>; right : Trie<K, V>; size : Nat};
+type Club =
+  {
+    clubImg : [Nat8];
+    isPublic : Bool;
+    name : Text;
+    owner : Principal;
+    time_created : Time
+  };
+type Comment =
+  {author : [Principal]; comments : [Text]; time_created : [Time]};
+type ConnectOwner =
+  {address : Text; email : Text; name : Text; profile : [Nat8]};
+type Hash = Nat32;
+type Id = Nat32;
+type Key<K> = {hash : Hash; key : K};
+type Leaf<K, V> = {keyvals : AssocList__1<Key<K>, V>; size : Nat};
+type List<T> = ?(T, List<T>);
+type OwnerClub =
+  {approve : Bool; joinClub : Nat32; joined_date : Time; owner : [Principal]};
+type Time = Int;
+type Trie<K, V> = {#branch : Branch<K, V>; #empty; #leaf : Leaf<K, V>};
+type Wallet = Principal;
+actor {
+  stable var nextClub : Nat32;
+  stable var nextComment : Nat32;
+  stable var nextMember : Nat32;
+  stable var owner_ : Principal;
+  stable var stableClub :
+    {#branch : Branch<Id, Club>; #empty; #leaf : Leaf<Id, Club>};
+  stable var stableComment :
+    {#branch : Branch<Id, Comment>; #empty; #leaf : Leaf<Id, Comment>};
+  stable var stableOwner :
+    {#branch : Branch<Id, OwnerClub>; #empty; #leaf : Leaf<Id, OwnerClub>};
+  stable var stablemember :
+    {
+      #branch : Branch<Wallet, ConnectOwner>;
+      #empty;
+      #leaf : Leaf<Wallet, ConnectOwner>
+    }
+};

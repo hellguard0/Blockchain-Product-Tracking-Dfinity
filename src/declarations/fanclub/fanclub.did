@@ -1,0 +1,134 @@
+type Wallet = principal;
+type Time = int;
+type Result_6 = 
+ variant {
+   err: text;
+   ok;
+ };
+type Result_5 = 
+ variant {
+   err;
+   ok: text;
+ };
+type Result_4 = 
+ variant {
+   err: ClubError;
+   ok;
+ };
+type Result_3 = 
+ variant {
+   err: ClubError;
+   ok: ClubError;
+ };
+type Result_2 = 
+ variant {
+   err: OwnerError;
+   ok: principal;
+ };
+type Result_1 = 
+ variant {
+   err: ClubError;
+   ok: bool;
+ };
+type Result = 
+ variant {
+   err: ConnectOwnerError;
+   ok: bool;
+ };
+type OwnerError = variant {UserNotAuthenticated;};
+type OwnerClubWithID = 
+ record {
+   approve: bool;
+   gid: Id;
+   joinClub: nat32;
+   joined_date: Time;
+   owner: vec principal;
+ };
+type OwnerClub = 
+ record {
+   approve: bool;
+   joinClub: nat32;
+   joined_date: Time;
+   owner: vec principal;
+ };
+type Id = nat32;
+type FanClub = 
+ service {
+   addComment: (Id, Comment) -> (Result_6);
+   addConnectOwner: (ConnectOwner) -> (Result_5);
+   createClub: (Club) -> (Result_4);
+   findAll: () -> (vec ConnectOwnerWithId) query;
+   findAllClub: () -> (vec ClubWithID) query;
+   findAllMember: () -> (vec OwnerClubWithID) query;
+   findClubByID: (Id) -> (opt Club) query;
+   findConnectOwnedById: (Wallet) -> (opt ConnectOwner) query;
+   findMemberByID: (Id) -> (opt OwnerClub) query;
+   getAllComment: () -> (vec CommentWithId) query;
+   getCommentById: (Id) -> (opt Comment);
+   getOwner: () -> (principal) query;
+   requestJoin: (OwnerClub) -> (Result_3);
+   setOwner: (principal) -> (Result_2);
+   updateOrDeleteClub: (Id, opt Club) -> (Result_1);
+   updateOrDeleteConnectOwner: (Wallet, opt ConnectOwner) -> (Result);
+ };
+type ConnectOwnerWithId = 
+ record {
+   address: text;
+   email: text;
+   id: Wallet;
+   name: text;
+   profile: vec nat8;
+ };
+type ConnectOwnerError = 
+ variant {
+   AddError;
+   UserNotAuthenticated;
+ };
+type ConnectOwner = 
+ record {
+   address: text;
+   email: text;
+   name: text;
+   profile: vec nat8;
+ };
+type CommentWithId = 
+ record {
+   author: vec principal;
+   comments: vec text;
+   gid: Id;
+   time_created: vec Time;
+ };
+type Comment = 
+ record {
+   author: vec principal;
+   comments: vec text;
+   time_created: vec Time;
+ };
+type ClubWithID = 
+ record {
+   clubImg: vec nat8;
+   id: Id;
+   isPublic: bool;
+   name: text;
+   owner: principal;
+   time_created: Time;
+ };
+type ClubError = 
+ variant {
+   AddError;
+   ExistError;
+   Success;
+   UserNotApproved;
+   UserNotAuthenticated;
+   UserNotFound;
+   UserNotJoined;
+ };
+type Club = 
+ record {
+   clubImg: vec nat8;
+   isPublic: bool;
+   name: text;
+   owner: principal;
+   time_created: Time;
+ };
+service : (principal) -> FanClub

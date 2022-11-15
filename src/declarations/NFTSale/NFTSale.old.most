@@ -1,0 +1,97 @@
+// Version: 1.0.0
+type AssocList<K, V> = List<(K, V)>;
+type AssocList__1<K, V> = AssocList<K, V>;
+type Attribute = {description : Text; key : Text; value : Text};
+type Branch<K, V> = {left : Trie<K, V>; right : Trie<K, V>; size : Nat};
+type Hash = Nat32;
+type Key<K> = {hash : Hash; key : K};
+type Leaf<K, V> = {keyvals : AssocList__1<Key<K>, V>; size : Nat};
+type List<T> = ?(T, List<T>);
+type ListID = Nat;
+type Listing =
+  {creator : Principal; isListed : Bool; price : Nat; tokenId : Nat};
+type Location =
+  {
+    #AssetCanister : (Principal, Blob);
+    #IPFS : Text;
+    #InCanister : Blob;
+    #Web : Text
+  };
+type Operation =
+  {
+    #approve;
+    #approveAll;
+    #burn;
+    #mint : ?TokenMetadata;
+    #revokeAll;
+    #setMetadata;
+    #transfer;
+    #transferFrom
+  };
+type Record = {#metadata : ?TokenMetadata; #user : Principal};
+type SaleInfo =
+  {
+    amount : Nat;
+    var amountLeft : Nat;
+    devAddr : Principal;
+    devFee : Nat;
+    endTime : Int;
+    var feeClaimed : Bool;
+    var fundClaimed : Bool;
+    var fundRaised : Nat;
+    maxPerUser : Nat;
+    minPerUser : Nat;
+    paymentToken : Principal;
+    price : Nat;
+    startTime : Int;
+    whitelist : ?Principal
+  };
+type Set<T> = Trie<T, ()>;
+type Time = Int;
+type TokenInfo =
+  {
+    index : Nat;
+    var metadata : ?TokenMetadata;
+    var operator : ?Principal;
+    var owner : Principal;
+    timestamp : Time
+  };
+type TokenInfo__3 = TokenInfo;
+type TokenMetadata =
+  {attributes : [Attribute]; filetype : Text; location : Location};
+type Trie<K, V> = {#branch : Branch<K, V>; #empty; #leaf : Leaf<K, V>};
+type TxRecord =
+  {
+    caller : Principal;
+    from : Record;
+    index : Nat;
+    op : Operation;
+    timestamp : Time;
+    to : Record;
+    tokenIndex : ?Nat
+  };
+type TxRecord__2 = TxRecord;
+type UserInfo =
+  {
+    var allowedBy : Set<Principal>;
+    var allowedTokens : Set<Nat>;
+    var operators : Set<Principal>;
+    var tokens : Set<Nat>
+  };
+type UserInfo__3 = UserInfo;
+actor {
+  stable var blackhole : Principal;
+  stable var desc_ : Text;
+  stable var listingEntries : [(ListID, Listing)];
+  stable var logo_ : Text;
+  stable var name_ : Text;
+  stable var next : Nat;
+  stable var owner_ : Principal;
+  stable var saleInfo : ?SaleInfo;
+  stable var symbol_ : Text;
+  stable var tokensEntries : [(Nat, TokenInfo__3)];
+  stable var totalSupply_ : Nat;
+  stable var txIndex : Nat;
+  stable var txs : [TxRecord__2];
+  stable var usersEntries : [(Principal, UserInfo__3)]
+};

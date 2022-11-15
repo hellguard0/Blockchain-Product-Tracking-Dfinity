@@ -1,8 +1,10 @@
+import '@icon-park/react/styles/index.css';
+
 body {
   font-size: 1.5rem;
   background-color: #fff !important;
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -544,35 +546,58 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.form-InputBase-input::-webkit-input-placeholder {
+.form-InputBase-textarea {
+  font: inherit;
+  color: currentColor;
+  border: 0;
+  margin: 0;
+  display: block;
+  padding: 6px 0 7px;
+  min-width: 0;
+  background: none;
+  box-sizing: content-box;
+  animation-name: mui-auto-fill-cancel;
+  letter-spacing: inherit;
+  animation-duration: 10ms;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.form-InputBase-input::-webkit-input-placeholder,
+.form-InputBase-textarea::-webkit-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.form-InputBase-input::-moz-placeholder {
+.form-InputBase-input::-moz-placeholder,
+.form-InputBase-textarea::-moz-placeholder {
   color: currentColor;
   opacity: 0.42;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.form-InputBase-input:-ms-input-placeholder {
+.form-InputBase-input:-ms-input-placeholder,
+.form-InputBase-textarea:-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.form-InputBase-input::-ms-input-placeholder {
+.form-InputBase-input::-ms-input-placeholder,
+.form-InputBase-textarea::-ms-input-placeholder {
   color: currentColor;
   opacity: 0.42;
   transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 
-.form-InputBase-input:focus {
+.form-InputBase-input:focus,
+.form-InputBase-textarea:focus {
   outline: 0;
 }
 
-.form-InputBase-input:invalid {
+.form-InputBase-input:invalid,
+.form-InputBase-textarea:invalid {
   box-shadow: none;
 }
 
@@ -692,6 +717,7 @@ input[type=file]::file-selector-button {
 .form-OutlinedInput-input {
   padding: .5rem;
   border: 1px solid #E4E7ED;
+  font-family: 'Inter', sans-serif;
   border-radius: 4px;
   color: #000;
 }
@@ -1046,7 +1072,6 @@ input[type=file]::file-selector-button {
   color: #fff;
   width: 100%;
   height: 40px;
-  margin-top: 1rem;
   padding: .2rem;
   font-size: 1rem;
   border-radius: 25px;
@@ -1382,9 +1407,19 @@ input[type=file]::file-selector-button {
   border-radius: 4px;
   margin-bottom: 20px;
   letter-spacing: 1.1px;
+  font-family: 'Inter', sans-serif;
 }
 
 .makeStyles-price-23 {
+  background: #fff;
+  height: 22px;
+  color: #000;
+  font-size: .7rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+}
+
+.makeStyles-price-24 {
   background: #fff;
   height: 22px;
   color: #5265FF;
@@ -1393,7 +1428,22 @@ input[type=file]::file-selector-button {
   font-weight: 600;
   border-radius: 7px;
   padding: .25rem .5rem;
+  font-family: 'Inter', sans-serif;
 }
+
+.makeStyles-price-25 {
+  background: #F9F9F9;
+  height: 22px;
+  color: #5265FF;
+  font-size: .75rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 7px;
+  padding: .25rem .5rem;
+  width: fit-content;
+  font-family: 'Inter', sans-serif;
+}
+
 
 .makeStyles-bodyText-24 {
   color: white;
@@ -1593,11 +1643,13 @@ button span .right-icons {
 }
 
 .body-content {
-  padding: 1rem 1rem 2.5rem 1rem;
+  padding: 1rem 0 2.5rem 0;
 }
 
 .body-content .search-form {
   width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .body-content .search-form .search-input::before,
@@ -1628,6 +1680,8 @@ button span .right-icons {
 .featured {
   font-family: "Inter", sans-serif;
   margin: 1.5rem 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .featured h3 {
@@ -1723,12 +1777,60 @@ button span .right-icons {
   text-overflow: ellipsis;
 }
 
+.cardbody .card-h2 {
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-align: left;
+  color: #000;
+}
+
 .cardbody .card-p {
   font-size: .8rem;
   font-family: "Inter", sans-serif;
   font-weight: 600;
   text-align: left;
   color: #000;
+}
+
+.cardbody .card-h4 {
+  font-size: .7rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  color: #515151;
+}
+
+.cardbody .card-h6 {
+  font-size: .7rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  color: #000;
+}
+
+.cardbody .card-desc {
+  font-size: .7rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  text-align: left;
+  color: #000;
+}
+
+.cardbody .card-desc h6 {
+  font-size: .8rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  text-align: left;
+  color: #000;
+}
+
+.cardbody .card-desc h2 {
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  text-align: left;
+  color: #5265FF;
 }
 
 .chip-category {
@@ -1739,7 +1841,7 @@ button span .right-icons {
   padding: 0 .5rem !important;
   border: 1px solid #5265FF !important;
   height: 20px !important;
-  min-width: 58px;
+  width: fit-content;
 }
 
 .chip-category .css-6od3lo-MuiChip-label {
@@ -1763,11 +1865,650 @@ button span .right-icons {
 
 .label-collection {
   font-size: 1rem;
+  font-family: "Inter", sans-serif;
   color: #606266;
   text-align: left;
   margin-bottom: 0;
 }
 
 .logoimg {
-  width: 140px;
+  width: 100px;
+}
+
+.img-styles {
+  height: 55px;
+  width: 55px;
+  padding: 10px;
+  box-sizing: content-box;
+}
+
+@media all and (max-width: 300px) {
+  .img-styles {
+    width: 11vw;
+    max-height: 11vw;
+    height: auto;
+    padding: 0;
+    padding-right: 5px;
+  }
+}
+
+.dialog-styles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0 0 0 / 60%);
+  animation: fade-in 0.18s;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 30px;
+  margin-top: 0 !important;
+}
+
+.dialog-container {
+  display: grid;
+  grid-gap: 5px;
+  padding: 10px;
+  background: #f4f4f4;
+  border-radius: 15px;
+  overflow: auto;
+  grid-template-columns: 1fr;
+  cursor: initial;
+  animation: move-in 0.18s;
+  max-width: 420px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dark .dialog-container {
+  background: rgb(35 35 39);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes move-in {
+  from {
+    transform: translateY(5%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.button-styles {
+  background: transparent;
+  max-width: 100%;
+  width: 100%;
+  height: 75px;
+  padding: 10px;
+  border: none;
+  border-radius: 11px;
+  outline: 0;
+  cursor: pointer;
+  transition: transform 0.15s;
+  display: flex;
+  align-items: center;
+}
+
+.dark .button-styles {
+  border: none;
+}
+
+.button-label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 21px;
+  font-weight: 300;
+  color: #424242;
+  text-align: left;
+}
+
+.dark .button-label {
+  color: white;
+}
+
+@media all and (max-width: 300px) {
+  .button-label {
+    font-size: 6vw;
+  }
+}
+
+.button-styles:hover {
+  transform: scale(1.02);
+  font-weight: 800!important;
+  transition: all 0.2s;
+  background: white;
+}
+
+.dark .button-styles:hover {
+  background: #545454;
+}
+
+.button-styles > div {
+  display: flex;
+  padding: 0 15px;
+  border-radius: 10px;
+  font-weight: 400;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.connect-button {
+  font-size: .9rem;
+  background: rgb(35 35 39);
+  color: white;
+  border: none;
+  padding: .25rem .5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.connect-button:hover {
+  transform: scale(1.03);
+  transition: all 0.4s;
+}
+
+.MuiDialog-container {
+  align-items: flex-end !important;
+}
+
+.MuiDialog-paper {
+  margin: 0 !important;
+  border-radius: 30px 30px 0px 0px !important;
+}
+
+.borderRadius {
+  border-radius: 10px !important;
+}
+
+.trending h2 {
+  font-size: .8rem;
+  color: #5265FF;
+}
+
+.trending h3 {
+  font-size: .9rem;
+}
+
+.trending h5 {
+  font-size: .65rem;
+  color: #515151;
+}
+
+.trending h6 {
+  font-size: .65rem;
+}
+
+.btn-category.css-1ujnqem-MuiTabs-root {
+  min-height: 40px;
+}
+
+.btn-category .css-heg063-MuiTabs-flexContainer {
+  gap: .5rem !important;
+}
+
+.btn-category .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+  background: #fff;
+  border-radius: 64px;
+  color: #5265FF;
+  border: 2px solid #5265FF;
+  padding: 0.4rem;
+  min-width: 73px;
+  text-transform: capitalize;
+  font-family: "Inter", sans-serif;
+  min-height: 40px;
+}
+
+.btn-category .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  background: #5265FF !important;
+  color: #fff !important;
+}
+
+.btn-category .css-1aquho2-MuiTabs-indicator {
+  height: 0;
+}
+
+.card-actions .cancel .makeStyles-chipBlue-108 {
+  background-color: #FF4568 !important;
+}
+
+.card-actions .gift .makeStyles-chipBlue-108 {
+  background-color: #fff !important;
+  border: 1px solid #5265FF;
+  color: #5265FF !important;
+}
+
+.bg-purple {
+  background: #5265FF !important;
+}
+
+.fanclub {
+  border-radius: 10px !important;
+}
+
+.fanclub .MuiTypography-h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.fanclub .MuiTypography-p {
+  font-family: 'Inter', sans-serif;
+  font-size: .7rem;
+  font-weight: 400;
+}
+
+.fanclub .MuiButton-contained {
+  font-family: 'Inter', sans-serif;
+  text-transform: capitalize;
+  width: fit-content;
+  background: #fff;
+  color: #5265FF;
+  font-weight: 700;
+  font-size: .8rem;
+  box-shadow: 0px 0px 10px rgba(204, 209, 252, 0.5);
+  border-radius: 5px;
+  padding: .4rem .8rem;
+}
+
+.fanclub .MuiButton-contained:hover {
+  background: #fff;
+  color: #5265FF;
+}
+
+.fangroup {
+  border-radius: 10px !important;
+  position: relative;
+}
+
+.fangroup .fangroup-content {
+  padding: 1rem 1rem .5rem 1rem;
+}
+
+.fangroup .fangroup-content .MuiTypography-h5 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.fangroup .fangroup-content .i-icon {
+  line-height: 1px;
+}
+
+.fangroup .fangroup-content .MuiTypography-h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  color: #979797;
+}
+
+.fangroup .fangroup-content .fan-user {
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  font-weight: 400;
+  text-align: left;
+  color: #5265FF;
+}
+
+.fangroup .fangroup-content .fan-user-comment {
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  font-weight: 400;
+  text-align: left;
+  color: #979797;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.fangroup .fangroup-content .badge {
+  font-size: .6rem;
+  font-weight: 400;
+  line-height: 2;
+  padding: 0 .5rem;
+  border-radius: 10px;
+}
+
+.fangroup .avatargroup .avataruser {
+  width: 32px;
+  height: 32px;
+  font-size: .8rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.fangroup .avatargroup .MuiAvatar-root {
+  width: 32px;
+  height: 32px;
+  font-size: .7rem;
+  font-family: 'Inter', sans-serif;
+  background: #E8ECFF;
+  color: #5265FF;
+}
+
+.fangroup .btn-joined {
+  background: #5265FF;
+  color: #fff !important;
+  font-size: .8rem;
+  text-transform: capitalize;
+  font-family: 'Inter', sans-serif;
+  box-shadow: none;
+  padding: .6rem 1rem;
+  line-height: 1.2;
+  height: fit-content;
+  border-radius: 50px;
+}
+
+.fangroup .btn-joined:hover {
+  background: #5265FF;
+}
+
+.fangroup .btn-join {
+  border: 1px solid #5265FF;
+  background: #fff;
+  color: #5265FF !important;
+  font-size: .8rem;
+  text-transform: capitalize;
+  font-family: 'Inter', sans-serif;
+  box-shadow: none;
+  padding: .6rem 1rem;
+  line-height: 1.2;
+  height: fit-content;
+  border-radius: 50px;
+}
+
+.fangroup .btn-join:hover {
+  background: #5265FF;
+  color: #fff !important;
+}
+
+.fangroup .avatarHost {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  z-index: 1;
+  background: #fff;
+  padding: .25rem .4rem;
+  border-radius: 8px;
+}
+
+.fangroup .avatarHost .avatarHostImg {
+  width: 32px;
+  height: 32px;
+}
+
+.fangroup .avatarHost h4 {
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  font-size: .65rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.fangroup .avatarHost p {
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  font-size: .55rem;
+  font-weight: 400;
+  color: #989898;
+  line-height: 1;
+}
+
+.joinmethod,
+.hosted  {
+  padding: 0 1rem 1rem 1rem;
+}
+
+.joinmethod h2 {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.joinmethod img,
+.hosted img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.joinmethod h3,
+.hosted h3 {
+  font-size: .8rem;
+  color: #000;
+  font-weight: 600;
+  text-align: left;
+}
+
+.joinmethod img.conditionerror {
+  width: 22px;
+  height: 22px;
+}
+
+.joinmethod h4,
+.hosted h4 {
+  font-size: .8rem;
+  color: #5B606A;
+  font-weight: 400;
+  text-align: left;
+}
+
+.hosted p {
+  color: #000;
+  font-size: .7rem;
+  text-align: left;
+}
+
+.hosted .btn-joined {
+  background: #5265FF;
+  color: #fff !important;
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-family: 'Inter', sans-serif;
+  box-shadow: none;
+  padding: 0 1rem;
+  line-height: 1;
+  height: fit-content;
+  border-radius: 50px;
+}
+
+.hosted .btn-joined:hover {
+  background: #5265FF;
+}
+
+img.avatarOwner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+img.avatarOwnerImg {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.chatOthers,
+.chatReply {
+  width: 75%;
+}
+
+.chatOthers .card {
+  width: 100%;
+  border: 1px solid #EBE9ED;
+  color: #000;
+  text-align: left;
+  border-radius: 12px 12px 12px 3px;
+}
+
+.chatReply .card {
+  width: 100%;
+  border: 1px solid #EBE9ED;
+  color: #000;
+  text-align: left;
+  border-radius: 12px 12px 3px 12px;
+}
+
+.chatOthers .card .card-body,
+.chatReply .card .card-body {
+  padding: .8rem;
+}
+
+.chatOthers .card .card-body h3,
+.chatReply .card .card-body h3 {
+  font-size: .8rem;
+  color: #5265FF;
+  font-weight: 500;
+}
+
+.chatOthers .card .card-body p,
+.chatReply .card .card-body p {
+  font-size: .8rem;
+}
+
+.footer {
+  position: fixed;
+  bottom: 56px;
+  width: 100%;
+}
+
+.footer .MuiFormControl-root {
+  width: 100%;
+  margin: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+}
+
+.footer .MuiFilledInput-root {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  padding-top: 0;
+  padding-bottom: 0 .8rem;
+  padding-left: .4rem;
+  padding-right: 1rem;
+  height: fit-content;
+  font-size: .8rem;
+}
+.footer .MuiFilledInput-root:before,
+.footer .MuiFilledInput-root:after,
+.footer .MuiFilledInput-root:hover:not(.Mui-disabled):before {
+  border-bottom: none;
+}
+
+.footer .MuiFilledInput-input {
+  height: fit-content;
+  padding: .6rem;
+}
+
+.profileimg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: fill;
+}
+
+.profileinfo h3 {
+  font-size: .8rem;
+  color: #000;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+}
+
+.profileinfo .card {
+  border: 1px solid #E4E7ED;
+  border-radius: 4px;
+  color: #000;
+}
+
+.profileinfo .card .card-body {
+  padding: .8rem 1rem;
+}
+
+.profileinfo .card h5 {
+  font-size: .8rem;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.3;
+}
+
+.fantitle {
+  font-size: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.btnCreate.MuiButton-contained {
+  font-family: 'Inter', sans-serif;
+  text-transform: capitalize;
+  width: fit-content;
+  background: #5265FF;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: .4rem .8rem;
+}
+
+.btnCreate.MuiButton-contained:hover {
+  background: #5265FF;
+  color: #fff;
+}
+
+.pb-10 {
+  padding-bottom: 6rem;
+}
+
+.pt-10 {
+  padding-top: 4rem;
+}
+
+.fanOwner {
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+  top: 56px;
+}
+
+.fanOwner h3 {
+  font-size: 1rem;
+  color: #000;
+  font-weight: 600;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
 }

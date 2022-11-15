@@ -1,5 +1,5 @@
 {
-  "name": "connectNFT_assets",
+  "name": "ConnectNFT",
   "version": "0.1.0",
   "description": "The Place to Buy and Sell NFTs on the Internet Computer",
   "keywords": [
@@ -14,9 +14,9 @@
     "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
   },
   "devDependencies": {
-    "@dfinity/agent": "0.10.3",
-    "@dfinity/candid": "0.10.3",
-    "@dfinity/principal": "0.10.3",
+    "@dfinity/agent": "^0.11.1",
+    "@dfinity/candid": "0.11.1",
+    "@dfinity/principal": "0.11.1",
     "assert": "2.0.0",
     "buffer": "6.0.3",
     "copy-webpack-plugin": "^9.0.1",
@@ -37,14 +37,16 @@
     "last 2 edge version"
   ],
   "dependencies": {
-    "@dfinity/agent": "0.10.3",
-    "@dfinity/auth-client": "0.10.3",
-    "@dfinity/authentication": "0.10.3",
-    "@dfinity/identity": "0.10.3",
-    "@dfinity/principal": "0.10.3",
+    "@connect2ic/core": "^0.2.0-beta.5",
+    "@connect2ic/react": "^0.2.0-beta.5",
+    "@dfinity/auth-client": "0.11.1",
+    "@dfinity/authentication": "0.11.1",
+    "@dfinity/identity": "0.11.1",
+    "@dfinity/principal": "0.11.1",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@fontsource/inter": "^4.5.11",
+    "@icon-park/react": "^1.4.2",
     "@mui/icons-material": "^5.8.2",
     "@mui/material": "^5.8.2",
     "bootstrap": "^5.1.3",
